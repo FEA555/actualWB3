@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -20,7 +20,7 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: 'http://localhost:3000',
+                url: 'http://localhost:8080',
             },
         ],
     },
@@ -39,7 +39,7 @@ let goods = [];
 
 // Получить html
 app.get('/', (req, res) => {
-    fs.readFile('index.html', (err, data) => {
+    fs.readFile('admin.html', (err, data) => {
         if (err) throw err; 
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(data); 

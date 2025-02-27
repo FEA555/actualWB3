@@ -1,0 +1,16 @@
+[
+    {
+        "name": "ogurtsi",
+        "id": 1,
+        "price": 100500,
+        "about": "oooo da",
+        "taipe": 1
+    },
+    {
+        "name" : "ne_ogurtsi",
+        "id": 2,
+        "price": 10,
+        "about": "oooo net",
+        "taipe": 2
+    }
+]

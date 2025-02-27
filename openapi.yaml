@@ -1,0 +1,92 @@
+
+openapi: 3.0.3
+info:
+  title: Swagger Petstore - OpenAPI 3.0
+  version: 1.0.11
+servers:
+  - url: http://localhost:3000
+  - url: http://localhost:8080
+paths:
+  /tasks:
+    get:
+      summary: Получить список goods
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    price:
+                      type: integer
+                    about:
+                      type: string
+                    taipe:
+                      type: integer
+
+    post:
+      summary: Создать новую goods
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: integer
+                about:
+                  type: string
+              
+      responses:
+        '201':
+          description: Goods создана
+
+  /tasks/{id}:
+    put:
+      summary: Обновить goods по ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID задачи
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                price:
+                  type: integer
+                about:
+                  type: string
+      responses:
+        '200':
+            description: Goods обновлена
+  
+    delete:
+      summary: Удалить goods по ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID goods
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Goods удалена
